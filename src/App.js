@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-  return <div>brxi</div>;
+  return <div>Danyar Khdir</div>;
 }
 
 export default App;
