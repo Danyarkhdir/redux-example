@@ -13,9 +13,9 @@ export default function Example() {
   const navigation = [
     { name: "Home", href: "/", current: location.pathname === "/" },
     {
-      name: "Setting",
-      href: "/setting",
-      current: location.pathname === "/setting",
+      name: "User Info",
+      href: "/user",
+      current: location.pathname === "/user",
     },
   ];
   return (
