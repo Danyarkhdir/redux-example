@@ -1,7 +1,11 @@
 import "./App.css";
-
+import NavBar from "./components/Navbar";
 function App() {
-  return <div>Danyar Khdir</div>;
+  return (
+    <div>
+      <NavBar />
+    </div>
+  );
 }
 
 export default App;
