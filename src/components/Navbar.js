@@ -3,6 +3,8 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useLocation, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../features/user/userSlice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,6 +12,7 @@ function classNames(...classes) {
 
 export default function Example() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const navigation = [
     { name: "Home", href: "/", current: location.pathname === "/" },
     {
@@ -104,7 +107,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="#"
+                            to="/setting"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -117,11 +120,14 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="#"
+                            to="/"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
+                            onClick={() => {
+                              dispatch(deleteUser());
+                            }}
                           >
                             Sign out
                           </Link>
@@ -137,9 +143,8 @@ export default function Example() {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Link to={item.href}>
+                <Link key={item.name} to={item.href}>
                   <Disclosure.Button
-                    key={item.name}
                     as="a"
                     className={classNames(
                       item.current
