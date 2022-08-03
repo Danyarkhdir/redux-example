@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: {
-    username: "Default user ",
-    password: "Default password",
+    username: "Default",
+    password: "Default",
   },
 };
 
@@ -16,8 +16,8 @@ export const userSlice = createSlice({
     },
     deleteUser: (state) => {
       state.user = {
-        username: "Default user ",
-        password: "Default password",
+        username: "Default",
+        password: "Default",
       };
     },
     updatePassword: (state, action) => {
